@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: int_order_items_enriched
+    description: "Order items enriched with product, order and user information"
+    columns:
+      - name: order_item_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        tests:
+          - not_null
+      - name: user_id
+        tests:
+          - not_null
+      - name: product_id
+        tests:
+          - not_null
+      - name: sale_price
+        tests:
+          - not_null
+
+  - name: int_events_funnel
+    description: "Web events enriched with user demographics for funnel analysis"
+    columns:
+      - name: event_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: session_id
+        tests:
+          - not_null
+      - name: traffic_source
+        tests:
+          - not_null
+      - name: uri
+        tests:
+          - not_null
+      - name: event_type
+        tests:
+          - accepted_values:
+              values: ['cancel', 'cart', 'department', 'home', 'product', 'purchase']
