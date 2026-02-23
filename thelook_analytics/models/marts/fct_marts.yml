@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: fct_monetary_detail
+    description: "Order item level detail with product, user and financial metrics"
+
+  - name: fct_events_daily
+    description: "Daily summary of web events by traffic source, country and gender"
+
+  - name: fct_delivery_performance
+    description: "Delivery and return performance aggregated by category, country and city"
