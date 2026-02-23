@@ -1,0 +1,64 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: "Cleaned and renamed orders from thelook source"
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        tests:
+          - not_null
+
+  - name: stg_order_items
+    description: "Cleaned and renamed order items"
+    columns:
+      - name: order_item_id
+        tests:
+          - unique
+          - not_null
+      - name: sale_price
+        tests:
+          - not_null
+
+  - name: stg_users
+    description: "Cleaned and renamed users"
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_products
+    description: "Cleaned and renamed products"
+    columns:
+      - name: product_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_events
+    description: "Cleaned and renamed web events"
+    columns:
+      - name: event_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_inventory_items
+    description: "Cleaned and renamed inventory items"
+    columns:
+      - name: inventory_item_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_distribution_centers
+    description: "Cleaned and renamed distribution centers"
+    columns:
+      - name: distribution_center_id
+        tests:
+          - unique
+          - not_null
