@@ -1,0 +1,26 @@
+with source as (
+    select * from {{ source('thelook', 'events') }}
+),
+renamed as (
+    select
+        id as event_id,
+        user_id,
+        sequence_number,
+        session_id,
+        created_at,
+        ip_address,
+        city,
+        state,
+         postal_code,
+         browser,
+         
+
+        --country,
+        traffic_source,
+        uri,
+        event_type
+    from source
+)
+select * from renamed
+
+

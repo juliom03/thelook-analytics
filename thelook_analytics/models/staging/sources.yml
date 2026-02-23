@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: thelook
+    database: bigquery-public-data
+    schema: thelook_ecommerce
+    description: "Fictitious e-commerce public dataset by Google"
+    tables:
+      - name: orders
+        description: "Header record for each purchase order"
+      - name: order_items
+        description: "Line items per order including product and price"
+      - name: users
+        description: "Buyer demographics"
+      - name: products
+        description: "Product catalog"
+      - name: events
+        description: "User web events"
+      - name: inventory_items
+        description: "Stock and inventory records"
+      - name: distribution_centers
+        description: "Distribution center locations"
