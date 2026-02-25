@@ -1,3 +1,11 @@
+
+--Only for learnign porpuses, we will do it incremental
+
+{{ config(
+    materialized='incremental',
+    unique_key='order_item_id'
+) }}
+
 with order_items as (
     select * from {{ ref('stg_order_items') }}
 ),
@@ -59,5 +67,9 @@ enriched as (
     left join products p on oi.product_id = p.product_id
     left join users u    on oi.user_id    = u.user_id
 )
+
+{% if is_incremental() %}
+WHERE oi.created_at >= (SELECT MAX(created_at) FROM {{ this }})
+{% endif %}
 
 select * from enriched
